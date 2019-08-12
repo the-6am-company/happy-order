@@ -1,0 +1,91 @@
+.Discount_Container {
+  animation-name: fadeIn;
+  animation: fadeIn 0.7s;
+  transition-duration: 0.7s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.Button {
+  width: 200px;
+  height: 42px;
+  background-color: #00c3ff;
+  color: white;
+  border: 1px solid #00c3ff;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: .3s
+}
+
+.Button_Action:hover {
+  outline: none;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, .1);
+  transform: translateY(-3px)
+}
+
+.Button_Action:focus {
+  outline: none;
+  /* transform: translateY(0px) */
+}
+
+.Button_Action:active {
+  outline: none;
+  transform: translateY(0px)
+}
+
+.Discount_Select {
+  margin-top: 15px;
+  width: 220px;
+  height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition-duration: .3s;
+  background-color: white;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.Discount_Select:hover {
+  border-color: #00c3ff;
+}
+
+.Discount_Select:focus {
+  border-color: #00c3ff;
+  box-shadow: 0 0 0 2px #00c3ff30;
+}
+
+.Input_Discount {
+  width: 200px;
+  height: 30px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition-duration: .3s
+}
+
+.Input_Discount:hover {
+  border-color: #00c3ff;
+}
+
+.Input_Discount:focus {
+  border-color: #00c3ff;
+  box-shadow: 0 0 0 2px #00c3ff30;
+}
