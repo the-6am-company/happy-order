@@ -1,0 +1,91 @@
+.AddUser_Container {
+  animation-name: fadeIn;
+  animation: fadeIn 0.7s;
+  transition-duration: 0.7s;
+}
+
+/* @keyframes slide {
+  to {
+    width: 300%;
+  }
+
+  from {
+    margin-left: -100%;
+  }
+} */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.Input {
+  margin-top: 10px;
+  width: 200px;
+  height: 30px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition-duration: .3s
+}
+
+.Input:hover {
+  border-color: #00c3ff;
+}
+
+.Input:focus {
+  border-color: #00c3ff;
+  box-shadow: 0 0 0 2px #00c3ff30;
+}
+
+.Button {
+  width: 200px;
+  height: 42px;
+  background-color: #00c3ff;
+  color: white;
+  border: 1px solid #00c3ff;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: .3s
+}
+
+.Button_Action:hover {
+  outline: none;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, .1);
+  transform: translateY(-3px)
+}
+
+.Button_Action:focus {
+  outline: none;
+  /* transform: translateY(0px) */
+}
+
+.Button_Action:active {
+  outline: none;
+  transform: translateY(0px)
+}
+
+.contactBody__Input__Small {
+  margin-top: 5px;
+  color: red;
+  font-style: italic
+}
+
+.array_Button {
+  margin: 0 10px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition-duration: .3s;
+  background-color: white
+}

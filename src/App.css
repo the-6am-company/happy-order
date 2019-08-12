@@ -1,0 +1,75 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background-color: #eee; */
+  /* background: linear-gradient(to right, #2c3e50, #3498db); */
+  /* background: linear-gradient(to right, #525252, #3d72b4); */
+  /* background: linear-gradient(to right, #136a8a, #267871); */
+  background: linear-gradient(to bottom, #485563, #29323c);
+  flex-direction: column;
+  animation-name: fadeIn;
+  animation: fadeIn 1s;
+  transition-duration: 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.Card {
+  /* border: 1px solid red; */
+  padding: 30px 0 0 0;
+  border-radius: 6px;
+  height: 600px;
+  width: 1000px;
+  box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.Button_A,
+.Button_B,
+.Button_C {
+  width: 400px;
+  background-color: #f4f4f4;
+  border: none;
+  height: 50px;
+  font-size: 14px;
+  color: #555555;
+  cursor: pointer;
+  font-weight: 500;
+  transition-duration: .3s;
+  transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+}
+
+.Button_A:active,
+.Button_A:focus {
+  border: none;
+  outline: none;
+}
+
+.Button_B:active,
+.Button_B:focus {
+  border: none;
+  outline: none;
+}
+
+.Button_C:active,
+.Button_C:focus {
+  border: none;
+  outline: none;
+}
+
+.frontpage_footer {
+  text-decoration: none;
+  color: white
+}
