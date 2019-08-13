@@ -69,7 +69,7 @@ const Bill = props => {
                 >
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.name}</span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(i.price)} VNĐ</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(i.discount.toFixed())} VNĐ</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(Number(i.discount).toFixed())} VNĐ</span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.item}</span>
                 </div>
               ))}
