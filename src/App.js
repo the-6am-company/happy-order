@@ -12,11 +12,11 @@ function App() {
 
   const [count, setCount] = useState(0)
 
-  const [totalCost, setTotalCost] = useState(0)
-  const [moneyShip, setMoneyShip] = useState(0)
-  const [moneyMaxDiscount, setMoneyMaxDiscount] = useState(0)
-  const [moneyDiscount, setMoneyDiscount] = useState(0)
-  const [percentDiscount, setPercentDiscount] = useState(0)
+  const [totalCost, setTotalCost] = useState('')
+  const [moneyShip, setMoneyShip] = useState('')
+  const [moneyMaxDiscount, setMoneyMaxDiscount] = useState('')
+  const [moneyDiscount, setMoneyDiscount] = useState('')
+  const [percentDiscount, setPercentDiscount] = useState('')
 
   const [isCash, setIsCash] = useState(true)
   const [isPercent, setIsPersent] = useState(false)
@@ -80,17 +80,29 @@ function App() {
   }
 
   const onHandleDeleteUser = idx => {
-    listInfo.splice(idx, 1)
+    const user = listInfo.splice(idx, 1)
+    setTotalCost(+totalCost - +user[0].price)
     setListInfo([...listInfo])
   }
 
   return (
     <div className="App">
       <div className="Card">
-        <span style={{ fontSize: 32, fontWeight: 300, margin: '10px 0', display: 'flex', justifyContent: 'center' }}>
-          Nền tảng chia tiền order theo nhóm
-        </span>
-        <div style={{ marginTop: 60, display: 'flex', backgroundColor: '#f4f4f4' }}>
+        <div
+          style={{
+            fontSize: 32,
+            fontWeight: 300,
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            margin: '-15px 0'
+          }}
+        >
+          <img style={{ width: 120 }} src="/alley51.png" alt="/alley51.png" />
+          <span>Nền tảng chia tiền order theo nhóm</span>
+          <img style={{ width: 70 }} src="/6am.png" alt="/6am.png" />
+        </div>
+        <div style={{ display: 'flex', backgroundColor: '#f4f4f4' }}>
           <button
             className="Button_A"
             style={(viewType === 'isAddUser' && styles) || {}}
@@ -152,7 +164,7 @@ function App() {
           )}
         </div>
       </div>
-      <div style={{ display: 'flex', color: 'white', marginTop: 40 }}>
+      <div style={{ display: 'flex', color: 'white' }}>
         <span>
           Make with love by{' '}
           <a

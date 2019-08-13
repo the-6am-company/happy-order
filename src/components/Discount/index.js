@@ -2,6 +2,8 @@ import React from 'react'
 
 import './style.css'
 
+let numbro = require('numbro')
+
 const Percent = props => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', flex: 1 }}>
@@ -77,12 +79,14 @@ const Cash = props => {
 }
 
 const Discount = props => {
+  const formatCurrency = value => numbro(value).format({ thousandSeparated: true })
+
   return (
     <div className="Discount_Container">
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {props.isCash && (
-          <span style={{ fontSize: 22, display: 'flex', width: 370 }}>
-            Tổng số tiền thanh toán : {+props.totalCost + +props.moneyShip - +props.moneyDiscount} VNĐ
+          <span style={{ fontSize: 22, display: 'flex', width: 400 }}>
+            Tổng số tiền thanh toán : {formatCurrency(+props.totalCost + +props.moneyShip - +props.moneyDiscount)} VNĐ
           </span>
         )}
         {props.isPercent && (

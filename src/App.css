@@ -1,6 +1,6 @@
 .App {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 100vh;
   /* background-color: #eee; */
@@ -26,7 +26,6 @@
 
 .Card {
   /* border: 1px solid red; */
-  padding: 30px 0 0 0;
   border-radius: 6px;
   height: 600px;
   width: 1000px;

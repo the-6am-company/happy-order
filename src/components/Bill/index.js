@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 import './style.css'
 
+let numbro = require('numbro')
+
 const Bill = props => {
   const [listBill, setListBill] = useState([])
+
   useEffect(() => {
     if (props.isCash) {
       const newList = props.listInfo.map(i => {
@@ -19,7 +22,8 @@ const Bill = props => {
         }
       })
       setListBill(newList)
-    } else {
+    }
+    if (props.isPercent && +props.totalCost * +(props.percentDiscount / 100) > props.moneyMaxDiscount) {
       const newList = props.listInfo.map(i => {
         return { ...i, discount: +i.discount - (props.moneyMaxDiscount - +props.moneyShip) / props.listInfo.length }
       })
@@ -35,6 +39,8 @@ const Bill = props => {
     props.percentDiscount,
     props.totalCost
   ])
+
+  const formatCurrency = value => numbro(value).format({ thousandSeparated: true })
 
   return (
     <div className="Bill_Container">
@@ -62,8 +68,8 @@ const Bill = props => {
                   }}
                 >
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.name}</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.price} VNĐ</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.discount.toFixed()} VNĐ</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(i.price)} VNĐ</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(i.discount.toFixed())} VNĐ</span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.item}</span>
                 </div>
               ))}
