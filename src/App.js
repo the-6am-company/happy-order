@@ -12,11 +12,11 @@ function App() {
 
   const [count, setCount] = useState(0)
 
-  const [totalCost, setTotalCost] = useState('')
-  const [moneyShip, setMoneyShip] = useState('')
-  const [moneyMaxDiscount, setMoneyMaxDiscount] = useState('')
-  const [moneyDiscount, setMoneyDiscount] = useState('')
-  const [percentDiscount, setPercentDiscount] = useState('')
+  const [totalCost, setTotalCost] = useState(0)
+  const [moneyShip, setMoneyShip] = useState(0)
+  const [moneyMaxDiscount, setMoneyMaxDiscount] = useState(0)
+  const [moneyDiscount, setMoneyDiscount] = useState(0)
+  const [percentDiscount, setPercentDiscount] = useState(0)
 
   const [isCash, setIsCash] = useState(true)
   const [isPercent, setIsPersent] = useState(false)
