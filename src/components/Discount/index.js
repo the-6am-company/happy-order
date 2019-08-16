@@ -86,15 +86,15 @@ const Discount = props => {
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {props.isCash && (
           <span style={{ fontSize: 22, display: 'flex', width: 400 }}>
-            Tổng số tiền thanh toán : {formatCurrency(+props.totalCost + +props.moneyShip - +props.moneyDiscount)} VNĐ
+            Tổng số tiền thanh toán : {formatCurrency(props.totalCost + props.moneyShip - props.moneyDiscount)} VNĐ
           </span>
         )}
         {props.isPercent && (
           <span style={{ fontSize: 22, display: 'flex', width: 370 }}>
             Tổng số tiền thanh toán :{' '}
-            {+props.totalCost * +(props.percentDiscount / 100) <= props.moneyMaxDiscount
-              ? +props.totalCost + +props.moneyShip - +(props.totalCost * +(props.percentDiscount / 100))
-              : +props.totalCost + +props.moneyShip - +props.moneyMaxDiscount}{' '}
+            {props.totalCost * (props.percentDiscount / 100) <= props.moneyMaxDiscount
+              ? props.totalCost + props.moneyShip - props.totalCost * (props.percentDiscount / 100)
+              : props.totalCost + props.moneyShip - props.moneyMaxDiscount}{' '}
             VNĐ
           </span>
         )}

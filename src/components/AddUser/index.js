@@ -33,8 +33,8 @@ function AddUser(props) {
     const listInfo = {
       name: name,
       item: item,
-      price: price,
-      discount: price
+      price: parseInt(price),
+      discount: parseInt(price)
     }
 
     props.handleSetListInfo(listInfo)

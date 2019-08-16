@@ -53,16 +53,16 @@ function App() {
   const onHandleChangeInput = async e => {
     switch (e.target.name) {
       case 'moneyShip':
-        setMoneyShip(e.target.value)
+        setMoneyShip(parseInt(e.target.value))
         break
       case 'moneyDiscount':
-        setMoneyDiscount(e.target.value)
+        setMoneyDiscount(parseInt(e.target.value))
         break
       case 'moneyMaxDiscount':
-        setMoneyMaxDiscount(e.target.value)
+        setMoneyMaxDiscount(parseInt(e.target.value))
         break
       case 'percentDiscount':
-        setPercentDiscount(e.target.value)
+        setPercentDiscount(parseInt(e.target.value))
         break
       default:
         return null

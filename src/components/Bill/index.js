@@ -10,22 +10,22 @@ const Bill = props => {
   useEffect(() => {
     if (props.isCash) {
       const newList = props.listInfo.map(i => {
-        return { ...i, discount: +i.discount - (+props.moneyDiscount - +props.moneyShip) / props.listInfo.length }
+        return { ...i, discount: i.discount - (props.moneyDiscount - props.moneyShip) / props.listInfo.length }
       })
       setListBill(newList)
     }
-    if (props.isPercent && +props.totalCost * +(props.percentDiscount / 100) <= props.moneyMaxDiscount) {
+    if (props.isPercent && props.totalCost * (props.percentDiscount / 100) <= props.moneyMaxDiscount) {
       const newList = props.listInfo.map(i => {
         return {
           ...i,
-          discount: +i.discount - (+props.totalCost * +(props.percentDiscount / 100) - +props.moneyShip) / props.listInfo.length
+          discount: i.discount - (props.totalCost * (props.percentDiscount / 100) - props.moneyShip) / props.listInfo.length
         }
       })
       setListBill(newList)
     }
-    if (props.isPercent && +props.totalCost * +(props.percentDiscount / 100) > props.moneyMaxDiscount) {
+    if (props.isPercent && props.totalCost * (props.percentDiscount / 100) > props.moneyMaxDiscount) {
       const newList = props.listInfo.map(i => {
-        return { ...i, discount: +i.discount - (props.moneyMaxDiscount - +props.moneyShip) / props.listInfo.length }
+        return { ...i, discount: i.discount - (props.moneyMaxDiscount - props.moneyShip) / props.listInfo.length }
       })
       setListBill(newList)
     }
@@ -68,9 +68,9 @@ const Bill = props => {
                   }}
                 >
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.name}</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.price && formatCurrency(+i.price)} VNĐ</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.price && formatCurrency(i.price)} VNĐ</span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>
-                    {i.discount && formatCurrency(Number(+i.discount).toFixed())} VNĐ
+                    {i.discount && formatCurrency(Number(i.discount).toFixed())} VNĐ
                   </span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.item}</span>
                 </div>
