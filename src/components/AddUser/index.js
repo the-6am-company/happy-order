@@ -104,7 +104,7 @@ function AddUser(props) {
             >
               <span style={{ width: 100, marginRight: 10 }}>{i.name}</span>
               <span style={{ width: 170 }}>{i.item}</span>
-              <span style={{ width: 130 }}>{i.price && formatCurrency(+i.price)} VNĐ</span>
+              <span style={{ width: 130 }}>{i.price && formatCurrency(i.price)} VNĐ</span>
               <button onClick={() => handleDeleteUser(idx)} className="array_Button">
                 Xóa
               </button>
