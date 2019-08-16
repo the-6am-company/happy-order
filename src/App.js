@@ -43,7 +43,7 @@ function App() {
     ]
     setListInfo(newListInfo)
     setCount(count + 1)
-    setTotalCost(+totalCost + +value.price)
+    setTotalCost(parseInt(totalCost) + value.price)
   }
 
   const onHandleChangeStep = type => {

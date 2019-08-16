@@ -8,7 +8,7 @@ const initialState = {
   id: '',
   name: '',
   item: '',
-  price: ''
+  price: 0
 }
 
 const formatCurrency = value => numbro(value).format({ thousandSeparated: true })
