@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import './style.css'
 
+const formatCurrency = number => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number)
+
 const initialState = {
   id: '',
   name: '',
@@ -22,6 +24,8 @@ function AddUser(props) {
   }
 
   const handleSubmit = async e => {
+    e.preventDefault()
+
     setValidate(true)
     if (!name && name.length === 0) return
     if (!price && price.length === 0) return
@@ -51,29 +55,31 @@ function AddUser(props) {
       style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}
       className="AddUser_Container"
     >
-      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <span>Tên</span>
-          <input value={name} name="name" onChange={e => updateFormData(e)} className="Input" type="text" />
-          {isValidate && name.length === 0 && <small className="contactBody__Input__Small">* Tên không được để trống</small>}
+      <form>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 20 }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>Tên</span>
+            <input value={name} name="name" onChange={e => updateFormData(e)} className="Input" type="text" />
+            {isValidate && name.length === 0 && <small className="contactBody__Input__Small">* Tên không được để trống</small>}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>Số tiền(đơn vị: đồng)</span>
+            <input value={price} name="price" min={0} onChange={e => updateFormData(e)} className="Input" type="number" />
+            {isValidate && price.length === 0 && (
+              <small className="contactBody__Input__Small">* Số tiền không được để trống</small>
+            )}
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>Sản phẩm(không bắt buộc)</span>
+            <input value={item} name="item" onChange={e => updateFormData(e)} className="Input" type="text" />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-end', height: 70 }}>
+            <button onClick={handleSubmit} type="submit" className="Button Button_Action">
+              Thêm vào danh sách
+            </button>
+          </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <span>Số tiền(đơn vị: đồng)</span>
-          <input value={price} name="price" min={0} onChange={e => updateFormData(e)} className="Input" type="number" />
-          {isValidate && price.length === 0 && (
-            <small className="contactBody__Input__Small">* Số tiền không được để trống</small>
-          )}
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <span>Sản phẩm(không bắt buộc)</span>
-          <input value={item} name="item" onChange={e => updateFormData(e)} className="Input" type="text" />
-        </div>
-        <div style={{ display: 'flex', alignItems: 'flex-end', height: 70 }}>
-          <button onClick={handleSubmit} className="Button Button_Action">
-            Thêm vào danh sách
-          </button>
-        </div>
-      </div>
+      </form>
       <div
         style={{
           display: 'flex',
@@ -100,7 +106,7 @@ function AddUser(props) {
             >
               <span style={{ width: 100, marginRight: 10 }}>{i.name}</span>
               <span style={{ width: 170 }}>{i.item}</span>
-              <span style={{ width: 130 }}>{i.price} VNĐ</span>
+              <span style={{ width: 130 }}>{formatCurrency(i.price)}</span>
               <button onClick={() => handleDeleteUser(idx)} className="array_Button">
                 Xóa
               </button>

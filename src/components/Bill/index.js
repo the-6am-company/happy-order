@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 import './style.css'
 
+const formatCurrency = number => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number)
+
 const Bill = props => {
   const [listBill, setListBill] = useState([])
 
@@ -64,8 +66,8 @@ const Bill = props => {
                   }}
                 >
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.name}</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.price} VNĐ</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.discount.toFixed()} VNĐ</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(i.price)}</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{formatCurrency(i.discount.toFixed())}</span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.item}</span>
                 </div>
               ))}

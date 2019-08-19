@@ -2,6 +2,8 @@ import React from 'react'
 
 import './style.css'
 
+const formatCurrency = number => new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(number)
+
 const Percent = props => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', flex: 1 }}>
@@ -27,7 +29,7 @@ const Percent = props => {
           style={{ margin: '0 5px' }}
           type="number"
         />
-        <span> VNĐ</span>
+        <span> ₫</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <span style={{ display: 'flex', width: 150 }}>Tiền ship:</span>
@@ -39,7 +41,7 @@ const Percent = props => {
           style={{ margin: '0 5px' }}
           type="number"
         />
-        <span> VNĐ</span>
+        <span> ₫</span>
       </div>
     </div>
   )
@@ -58,7 +60,7 @@ const Cash = props => {
           style={{ margin: '0 5px' }}
           type="number"
         />
-        <span>VNĐ</span>
+        <span>₫</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <span style={{ display: 'flex', width: 150 }}>Tiền ship:</span>
@@ -70,7 +72,7 @@ const Cash = props => {
           style={{ margin: '0 5px' }}
           type="number"
         />
-        <span>VNĐ</span>
+        <span>₫</span>
       </div>
     </div>
   )
@@ -82,16 +84,15 @@ const Discount = props => {
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {props.isCash && (
           <span style={{ fontSize: 22, display: 'flex', width: 400 }}>
-            Tổng số tiền thanh toán : {props.totalCost + props.moneyShip - props.moneyDiscount} VNĐ
+            Tổng số tiền thanh toán : {formatCurrency(props.totalCost + props.moneyShip - props.moneyDiscount)}
           </span>
         )}
         {props.isPercent && (
           <span style={{ fontSize: 22, display: 'flex', width: 370 }}>
             Tổng số tiền thanh toán :{' '}
             {props.totalCost * (props.percentDiscount / 100) <= props.moneyMaxDiscount
-              ? props.totalCost + props.moneyShip - props.totalCost * (props.percentDiscount / 100)
-              : props.totalCost + props.moneyShip - props.moneyMaxDiscount}{' '}
-            VNĐ
+              ? formatCurrency(props.totalCost + props.moneyShip - props.totalCost * (props.percentDiscount / 100))
+              : formatCurrency(props.totalCost + props.moneyShip - props.moneyMaxDiscount)}{' '}
           </span>
         )}
       </div>
