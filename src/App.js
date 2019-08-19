@@ -166,7 +166,7 @@ function App() {
       </div>
       <div style={{ display: 'flex', color: 'white' }}>
         <span>
-          Make with love by{' '}
+          Made with ♥ by{' '}
           <a
             className="frontpage_footer"
             target="_blank"
