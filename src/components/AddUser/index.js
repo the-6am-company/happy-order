@@ -2,16 +2,12 @@ import React, { useState } from 'react'
 
 import './style.css'
 
-let numbro = require('numbro')
-
 const initialState = {
   id: '',
   name: '',
   item: '',
   price: 0
 }
-
-const formatCurrency = value => numbro(value).format({ thousandSeparated: true })
 
 function AddUser(props) {
   const [formData, setFormData] = useState({ ...initialState })
@@ -104,7 +100,7 @@ function AddUser(props) {
             >
               <span style={{ width: 100, marginRight: 10 }}>{i.name}</span>
               <span style={{ width: 170 }}>{i.item}</span>
-              <span style={{ width: 130 }}>{i.price && formatCurrency(i.price)} VNĐ</span>
+              <span style={{ width: 130 }}>{i.price} VNĐ</span>
               <button onClick={() => handleDeleteUser(idx)} className="array_Button">
                 Xóa
               </button>

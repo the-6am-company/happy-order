@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import './style.css'
 
-let numbro = require('numbro')
-
 const Bill = props => {
   const [listBill, setListBill] = useState([])
 
@@ -40,8 +38,6 @@ const Bill = props => {
     props.totalCost
   ])
 
-  const formatCurrency = value => numbro(value).format({ thousandSeparated: true })
-
   return (
     <div className="Bill_Container">
       <div style={{ display: 'flex', flex: 1, flexDirection: 'column', overflow: 'scroll' }}>
@@ -68,10 +64,8 @@ const Bill = props => {
                   }}
                 >
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.name}</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.price && formatCurrency(i.price)} VNĐ</span>
-                  <span style={{ display: 'flex', flex: 1 / 4 }}>
-                    {i.discount && formatCurrency(Number(i.discount).toFixed())} VNĐ
-                  </span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.price} VNĐ</span>
+                  <span style={{ display: 'flex', flex: 1 / 4 }}>{i.discount.toFixed()} VNĐ</span>
                   <span style={{ display: 'flex', flex: 1 / 4 }}>{i.item}</span>
                 </div>
               ))}
